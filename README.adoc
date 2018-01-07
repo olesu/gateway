@@ -1,0 +1,43 @@
+= Gateway
+
+== Running
+
+---
+./mvnw spring-boot:run
+---
+
+Using `curl` to send a request to the locally running project:
+
+---
+curl http://localhost:8080/
+---
+
+When running above command, you are being greeted with the following Json:
+
+---
+{"timestamp":1515318869977,"status":404,"error":"Not Found","message":"No message available","path":"/health"}
+---
+
+== Building
+
+=== Building the project
+
+---
+./mvnw package
+---
+
+=== Maintaining Maven Wrapper
+
+To set up or update the Maven wrapper, run the following Maven goal:
+
+---
+mvn -N io.takari:maven:wrapper
+---
+
+== Deploying
+
+Enable `fabric8` with
+
+---
+mvn io.fabric8:fabric8-maven-plugin:3.1.32:setup
+---

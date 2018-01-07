@@ -23,7 +23,7 @@ When running above command, you are being greeted with the following Json:
 === Building the project
 
 ---
-./mvnw package
+./mvnw clean install -Dfabric8.mode=openshift
 ---
 
 === Maintaining Maven Wrapper
@@ -36,8 +36,49 @@ mvn -N io.takari:maven:wrapper
 
 == Deploying
 
+---
+./mvnw fabric8:deploy -Dfabric8.mode=openshift
+---
+
 Enable `fabric8` with
 
 ---
 mvn io.fabric8:fabric8-maven-plugin:3.1.32:setup
 ---
+
+
+=== Install `oc cluster up`
+Install Docker for Mac and add insecure registry of `172.30.0.0/16`.
+Insecure registries are found under preferences in the Daemon section.
+
+Install `socat` with `brew install socat`.
+Install `oc` binary with `brew install openshift-cli`.
+
+Start the cluster
+
+---
+oc cluster up
+---
+
+---
+Starting OpenShift using openshift/origin:v3.7.0 ...
+Pulling image openshift/origin:v3.7.0
+Pulled 1/4 layers, 28% complete
+Pulled 2/4 layers, 56% complete
+Pulled 3/4 layers, 99% complete
+Pulled 4/4 layers, 100% complete
+Extracting
+Image pull complete
+OpenShift server started.
+
+The server is accessible via web console at:
+    https://127.0.0.1:8443
+
+You are logged in as:
+    User:     developer
+    Password: <any value>
+
+To login as administrator:
+    oc login -u system:admin
+---
+

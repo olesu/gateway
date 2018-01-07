@@ -1,50 +1,54 @@
 = Gateway
 
+xxxx
+
 == Running
 
----
+xxx
+
+....
 ./mvnw spring-boot:run
----
+....
 
 Using `curl` to send a request to the locally running project:
 
----
+....
 curl http://localhost:8080/
----
+....
 
 When running above command, you are being greeted with the following Json:
 
----
+....
 {"timestamp":1515318869977,"status":404,"error":"Not Found","message":"No message available","path":"/health"}
----
+....
 
 == Building
 
 === Building the project
 
----
+....
 ./mvnw clean install -Dfabric8.mode=openshift
----
+....
 
 === Maintaining Maven Wrapper
 
 To set up or update the Maven wrapper, run the following Maven goal:
 
----
+....
 mvn -N io.takari:maven:wrapper
----
+....
 
 == Deploying
 
----
+....
 ./mvnw fabric8:deploy -Dfabric8.mode=openshift
----
+....
 
 Enable `fabric8` with
 
----
+....
 mvn io.fabric8:fabric8-maven-plugin:3.1.32:setup
----
+....
 
 
 === Install `oc cluster up`
@@ -56,11 +60,11 @@ Install `oc` binary with `brew install openshift-cli`.
 
 Start the cluster
 
----
+....
 oc cluster up
----
+....
 
----
+....
 Starting OpenShift using openshift/origin:v3.7.0 ...
 Pulling image openshift/origin:v3.7.0
 Pulled 1/4 layers, 28% complete
@@ -80,5 +84,6 @@ You are logged in as:
 
 To login as administrator:
     oc login -u system:admin
----
+....
+
 

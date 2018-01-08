@@ -1,0 +1,8 @@
+---
+
+zuul.routes:
+  echo:
+    url: http://echo:8080
+
+server:
+  port: 8080
